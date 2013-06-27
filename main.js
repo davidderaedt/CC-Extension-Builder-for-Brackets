@@ -126,26 +126,6 @@ define(function (require, exports, module) {
 
 
 
-    function createNewCCExt() {
-        Resizer.show($panel);
-    }
-    
-
-        
-    function getHomeDir() {
-                    
-        var promise = nodeConnection.domains.ccext.getHomeDirectory();
-        promise.fail(function (err) {
-            console.error("[brackets-ccext-node] failed to run ccext.getHomeDirectory", err);
-        });
-        promise.done(function (path) {
-            //console.log("Home directory: " + path);
-            userHomeDir = path;
-        });
-        return promise;
-    }
-
-            
     function createPanel() {
         
         ExtensionUtils.loadStyleSheet(module, "panel.css");
@@ -182,12 +162,34 @@ define(function (require, exports, module) {
         });
         
     }
-            
-            
-    AppInit.appReady(function () {
-                
-        createPanel();
+    
+
+
+    function createNewCCExt() {
+        if (!$panel) {
+            createPanel();
+        }
         
+        Resizer.show($panel);
+    }
+    
+
+        
+    function getHomeDir() {
+                    
+        var promise = nodeConnection.domains.ccext.getHomeDirectory();
+        promise.fail(function (err) {
+            console.error("[brackets-ccext-node] failed to run ccext.getHomeDirectory", err);
+        });
+        promise.done(function (path) {
+            //console.log("Home directory: " + path);
+            userHomeDir = path;
+        });
+        return promise;
+    }
+            
+            
+    function initNodeCnx() {
         nodeConnection = new NodeConnection();
         
         var connectionPromise = nodeConnection.connect(true);
@@ -205,6 +207,12 @@ define(function (require, exports, module) {
                 getHomeDir();
             });
         });
+            
+    }
+            
+            
+    AppInit.appReady(function () {
+        initNodeCnx();
     });
 
     
