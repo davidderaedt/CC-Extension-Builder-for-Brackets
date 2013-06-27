@@ -16,7 +16,7 @@ maxerr: 50, node: true */
      */
     function cmdCopyTemplate(source, extid, cb) {
         
-        var cmd = __dirname + "/scripts/deployext.sh " + source + " " + extid;
+        var cmd = "'" + __dirname + "/scripts/deployext.sh' '" + source + "' " + extid;
         
         exec(cmd, function (error, stdout, stderr) {
             sys.puts(error);
