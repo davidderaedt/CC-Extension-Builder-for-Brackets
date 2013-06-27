@@ -130,8 +130,10 @@ define(function (require, exports, module) {
         
         ExtensionUtils.loadStyleSheet(module, "panel.css");
         
-        var panel = PanelManager.createBottomPanel("ccextbuilder.panel", $(PanelTemplate), 350);
+        var panel = PanelManager.createBottomPanel("dehats.ccextbuilder.panelHHJ", $(PanelTemplate));
         $panel = $("#ccext-panel");
+        
+        Resizer.makeResizable($panel);
         
         var $submitBt = $("#ccextSubmit");
         var $cancelBt = $("#ccextCancel");
