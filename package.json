@@ -1,0 +1,12 @@
+{
+    "name": "dehats.CCExtBuilder",
+    "title": "CC Extension Builder",
+    "description": "Create HTML based extensions for Creative Cloud Applications",
+    "homepage": "TBD",
+    "version": "0.0.1",
+    "author": "David Deraedt <dderaedt@adobe.com> (http://www.dehats.com)",
+    "license": "MIT",
+    "engines": {
+        "brackets": ">=0.25.0"
+    }
+}

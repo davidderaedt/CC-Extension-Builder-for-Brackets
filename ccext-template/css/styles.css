@@ -1,0 +1,26 @@
+body {
+    text-align:center;
+}
+
+button
+{
+    border:1px solid;
+    border-radius:3px;
+    height:19px;
+}
+
+#content {
+    margin-right:auto;
+    margin-left:auto;
+    vertical-align:middle;
+    width:100%;
+}
+
+#content ul {
+    padding:0px;
+}
+
+#content ul li {
+    margin:3px 0px 3px 0px;
+}
+
