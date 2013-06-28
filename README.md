@@ -7,8 +7,14 @@ A Brackets / Edge Code extension for easily creating HTML based panels for CC ap
 
 ##Installation
 
-Choose `File > Extension Manager…`, then `Install from URL`
-and paste the URL of this page.
+This extension is not compatible with Brackets's Extension Manager.
+
+To install: 
+
+1. Download the zip from this page.
+2. Unzip it in the user extension folder which you can open from the `Help > Show Extension Folder` menu.
+3. Relaunch Brackets / Edge Code.
+
 
 ##Usage
 
