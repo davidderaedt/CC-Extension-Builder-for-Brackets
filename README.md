@@ -4,10 +4,11 @@ A Brackets / Edge Code extension for easily creating HTML based panels for CC ap
 
 > *Warning*: This is a preview build. It is only compatible with Mac OSX (for now).
 
+This project leverages my [Creative Cloud Extensions CLI](https://github.com/davidderaedt/CCEXTCLI) to deploy a ready-to-use extension template based on a modified version of my [Creative Cloud Extension boilerplate](https://github.com/davidderaedt/ccext-boilerplate) (Standard).
 
 ##Installation
 
-This extension is not compatible with Brackets's Extension Manager.
+> This extension is not compatible with Brackets's Extension Manager.
 
 To install: 
 
@@ -26,9 +27,6 @@ You can then launch the target application, open your extension from the `Extens
 
 You can customize the default template from this extension source code, which you can see from the `Help > Show extension folder` menu.
 
-##Notes
-
-This extension leverages uses the `CC Ext CLI` to automatically deploy a ready-to-use extension template based on a `CC Ext boilerplate` (Standard).
 
 ###Live preview support
 
