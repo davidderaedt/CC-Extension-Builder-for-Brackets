@@ -44,7 +44,7 @@ maxerr: 50, node: true */
     
     function setDebugMode() {
 
-        var cmd = __dirname + "/scripts/setdebugmode.sh";
+        var cmd = "'" + __dirname + "/scripts/setdebugmode.sh'";
         
         exec(cmd, function (error, stdout, stderr) {
             sys.puts(error);
