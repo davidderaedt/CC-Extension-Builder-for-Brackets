@@ -14,8 +14,7 @@ define(function (require, exports, module) {
     var ProjectManager      = brackets.getModule("project/ProjectManager");
     var FileUtils           = brackets.getModule("file/FileUtils");
     var NativeFileSystem    = brackets.getModule("file/NativeFileSystem").NativeFileSystem;
-    var PanelManager        = brackets.getModule("view/PanelManager");
-    var Resizer             = brackets.getModule("utils/Resizer");
+    var Dialogs         = brackets.getModule("widgets/Dialogs");
     var PanelTemplate       = require("text!panel.html");
     var ExtensionUtils      = brackets.getModule("utils/ExtensionUtils");
     var AppInit             = brackets.getModule("utils/AppInit");
@@ -130,11 +129,8 @@ define(function (require, exports, module) {
         
         ExtensionUtils.loadStyleSheet(module, "panel.css");
         
-        var panel = PanelManager.createBottomPanel("dehats.ccextbuilder.panelHHJ", $(PanelTemplate));
-        $panel = $("#ccext-panel");
-        
-        Resizer.makeResizable($panel);
-        
+        Dialogs.showModalDialogUsingTemplate(PanelTemplate);
+                
         var $submitBt = $("#ccextSubmit");
         var $cancelBt = $("#ccextCancel");
         
@@ -153,26 +149,16 @@ define(function (require, exports, module) {
                 height: $extheight.val(),
                 extname : $extname.val()
             };
-            
-            Resizer.hide($panel);
-            
+                        
             createExtension(data);
         });
-        
-        $cancelBt.on("click", function (e) {
-            Resizer.hide($panel);
-        });
-        
+                
     }
     
 
 
     function createNewCCExt() {
-        if (!$panel) {
-            createPanel();
-        }
-        
-        Resizer.show($panel);
+        createPanel();
     }
     
 

@@ -1,33 +1,12 @@
-
-
 #ccext-panel{
-    padding:10px;
+    
 }
-
 
 form {
-    width:500px;    
-    clear: both;    
+    margin:20px;
+    width:400px;
 }
 
-form input {
-    width: 200px;
-    clear: both;
-}
-
-input, select{
-    margin:5px;
-}
-
-
-#ccextSubmit{
-    background-color:#449dea;
-    color:#fff;
-}
-
-
-#ccextCancel{
-    background-color:#ea4451;
-    color:#fff;
-    float:right;
+form input{
+   margin:6px;
 }

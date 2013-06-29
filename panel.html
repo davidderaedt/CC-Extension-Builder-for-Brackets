@@ -1,27 +1,34 @@
 
-<div id="ccext-panel" class="bottom-panel">
+<div class="extension-manager-dialog modal">
+    <div class="modal-header">
+        <h1 class="dialog-title">Creative Cloud Extension Builder - Experimental Build</h1>
+    </div>
+    <div class="modal-body no-padding zebra-striped">
+            
+        <form>
+            
+            <label>CC Product</label> <select id="ccext-host" name="ccext-product">
+                        <option value='0'>Photoshop</option>
+                        <option value='1'>Illustrator</option>
+                        <option value='2'>Premiere</option>
+                        <option value='3'>Prelude</option>
+                    </select><br>
+                         
+            <label>Unique ID</label> <input id="ccext-id"  type="text" name="rdn" value="com.example.helloworld"><br>
+            
+            <label>Display Name</label> <input id="ccext-extname"  type="text" name="extname" value="Hello World"><br>
     
-    <H3>Creative Cloud Extension Builder - Experimental Build</H3>
-    <form>
-        <label>CC Product</label> <select id="ccext-host" name="ccext-product">
-                    <option value='0'>Photoshop</option>
-                    <option value='1'>Illustrator</option>
-                    <option value='2'>Premiere</option>
-                    <option value='3'>Prelude</option>
-                </select><br>
-                                                
-        <label>Unique ID</label> <input id="ccext-id"  type="text" name="rdn" value="com.example.helloword"><br>
-        
-        <label>Display Name</label> <input id="ccext-extname"  type="text" name="extname" value="Hello World"><br>
-
-        <label>Default Width</label> <input id="ccext-extwidth"  type="text" value="300"><br>
-        
-        <label>Default Height</label> <input id="ccext-extheight"  type="text"  value="300"><br>
-                        
-        <input id="ccextSubmit" type="button" value="Create Extension"> 
-        
-        <input id="ccextCancel" type="button" value="Cancel"><br>
-        
-    </form>
-
+            <label>Default Width</label> <input id="ccext-extwidth"  type="text" value="300"><br>
+            
+            <label>Default Height</label> <input id="ccext-extheight"  type="text"  value="300"><br>
+           
+        </form>        
+            
+    </div>
+    
+    <div class="modal-footer">
+        <button id="ccextSubmit"  class="btn left dialog-button">Create Extension</button>
+        <button class="dialog-button btn primary" data-button-id="close">Cancel</button>
+    </div>
 </div>
+    
