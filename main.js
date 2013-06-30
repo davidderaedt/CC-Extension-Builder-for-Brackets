@@ -14,7 +14,7 @@ define(function (require, exports, module) {
     var ProjectManager      = brackets.getModule("project/ProjectManager");
     var FileUtils           = brackets.getModule("file/FileUtils");
     var NativeFileSystem    = brackets.getModule("file/NativeFileSystem").NativeFileSystem;
-    var Dialogs         = brackets.getModule("widgets/Dialogs");
+    var Dialogs             = brackets.getModule("widgets/Dialogs");
     var PanelTemplate       = require("text!panel.html");
     var ExtensionUtils      = brackets.getModule("utils/ExtensionUtils");
     var AppInit             = brackets.getModule("utils/AppInit");
@@ -22,12 +22,10 @@ define(function (require, exports, module) {
 
 
     var NEW_CCEXT_COMMAND_ID  = "CCExtBuilder.newExt";
-    var NEW_CCEXT_MENU_NAME   = "New CC Extension";
+    var NEW_CCEXT_MENU_NAME   = "New Creative Cloud Extension";
             
     var TEMPLATE_FOLDER_NAME = "/ccext-template/";
     var EXTENSION_DIR_MAC = "/Library/Application\ Support/Adobe/CEPServiceManager4/extensions/";
-    var PREF_LOCATION_MAC = "/Library/Preferences/com.adobe.CSXS.4.plist";
-    var PLAYER_DEBUG_STRING = "<key>PlayerDebugMode</key><string>1</string>";
     var NODE_DOMAIN_LOCATION = "node/CCExtDomain";
     var HOSTS = [
             '<Host Name="PHXS" Version="[14.0,14.9]" /><Host Name="PHSP" Version="[14.0,14.9]" />',
@@ -36,32 +34,31 @@ define(function (require, exports, module) {
             '<Host Name="PRLD" Version="[2.0,2.9]" />'
         ];
         
-        
-    // jquery handle for the UI
+                
     var $panel;
-    // Path to the user home directory
     var userHomeDir;
-    // Object used to connect to node services
     var nodeConnection;
 
     
                   
-    function _processTemplate(template, rep) {
+    function _processTemplate(templateString, data) {
         
-        var txt = template;
+        var str = templateString;
         var z;
-        for (z in rep) {
-            if (rep.hasOwnProperty(z)) {
+        for (z in data) {
+            if (data.hasOwnProperty(z)) {
                 var reg = new RegExp("\\${" + z + "}", "g");
-                txt = txt.replace(reg, rep[z]);
+                str = str.replace(reg, data[z]);
             }
         }
         
-        return txt;
+        return str;
     }
         
     
-    function processFileTemplate(srcFile, data) {
+    
+    function processTemplateFile(srcFile, data) {
+        
         var srcTxt = "";
         
         FileUtils.readAsText(srcFile)
@@ -79,19 +76,6 @@ define(function (require, exports, module) {
 
 
 
-    function setDebugMode() {
-        
-        var promise = nodeConnection.domains.ccext.setDebugMode();
-        promise.fail(function (err) {
-            console.error("[brackets-ccext-node] failed to run ccext.setDebugMode", err);
-        });
-        promise.done(function (path) {
-            console.log("debug mode on");
-        });
-        return promise;
-    }
-
-
     function createExtension(data) {
         
         var moduleFolder = FileUtils.getNativeModuleDirectoryPath(module);
@@ -106,20 +90,18 @@ define(function (require, exports, module) {
             console.error("[brackets-ccext-node] failed to run ccext.copyTemplate", err);
         });
         copyPromise.done(function (success) {
-            console.log("Template copied: " + success);
+            //console.log("Template copied: " + success);
 
-            // TMP hack before we get a clean way get async response
+            // TMP (awful) hack before we get a clean way to get async response
             window.setTimeout(function () {
-                // Modify manifest file             
-                var srcFile =  new NativeFileSystem.FileEntry(destDirPath + "/CSXS/manifest.xml");
-                processFileTemplate(srcFile, data);
                 
-                setDebugMode();
+                // Modify manifest file             
+                var manifestFile =  new NativeFileSystem.FileEntry(destDirPath + "/CSXS/manifest.xml");
+                processTemplateFile(manifestFile, data);
 
                 ProjectManager.openProject(destDirPath);
                                 
-            }, 1000);
-            
+            }, 700);
         });
     }
 
@@ -157,17 +139,17 @@ define(function (require, exports, module) {
     
 
 
-    function createNewCCExt() {
+    function onMenuCreateNewCCExt() {
         createPanel();
     }
     
 
         
-    function getHomeDir() {
+    function initNodeDomain() {
                     
-        var promise = nodeConnection.domains.ccext.getHomeDirectory();
+        var promise = nodeConnection.domains.ccext.initialize();
         promise.fail(function (err) {
-            console.error("[brackets-ccext-node] failed to run ccext.getHomeDirectory", err);
+            console.error("[brackets-ccext-node] failed to run ccext.initialize", err);
         });
         promise.done(function (path) {
             //console.log("Home directory: " + path);
@@ -175,9 +157,11 @@ define(function (require, exports, module) {
         });
         return promise;
     }
-            
+
+                
             
     function initNodeCnx() {
+        
         nodeConnection = new NodeConnection();
         
         var connectionPromise = nodeConnection.connect(true);
@@ -192,7 +176,7 @@ define(function (require, exports, module) {
                 console.log("[brackets-ccext-node] failed to load domain");
             });
             loadPromise.done(function () {
-                getHomeDir();
+                initNodeDomain();
             });
         });
             
@@ -204,10 +188,8 @@ define(function (require, exports, module) {
     });
 
     
-    
-    CommandManager.register(NEW_CCEXT_MENU_NAME, NEW_CCEXT_COMMAND_ID, createNewCCExt);
+    CommandManager.register(NEW_CCEXT_MENU_NAME, NEW_CCEXT_COMMAND_ID, onMenuCreateNewCCExt);
     var menu = Menus.getMenu(Menus.AppMenuBar.FILE_MENU);
     menu.addMenuItem(NEW_CCEXT_COMMAND_ID);
     menu.addMenuDivider(Menus.BEFORE, NEW_CCEXT_COMMAND_ID);
-    
 });

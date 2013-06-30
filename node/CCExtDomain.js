@@ -24,17 +24,32 @@ maxerr: 50, node: true */
 
         return cmd;
     }
+
     
+
     /**
-     * @private
-     * Returns the path of the home directory
-     * @return string
-     */
-    function cmdGetHomeDirectory() {
-        //console.log(process.env.USER);
-        return process.env.HOME;
-    }
+    * @private
+    * Give execution rights to scripts
+    * MAC ONLY
+    */
     
+    function setExecPermissions() {
+
+        var cmd1 = "chmod 755 '" + __dirname + "/scripts/setdebugmode.sh'";
+        exec(cmd1, function (error, stdout, stderr) {
+            sys.puts(error);
+        });
+        
+        var cmd2 = "chmod 755 '" + __dirname + "/scripts/deployext.sh'";
+        exec(cmd2, function (error, stdout, stderr) {
+            sys.puts(error);
+        });
+        
+        
+        return true;
+    }
+              
+
     
     /**
     * @private
@@ -53,6 +68,21 @@ maxerr: 50, node: true */
         return true;
     }
     
+  
+    /**
+     * @private
+     * Returns the path of the home directory
+     * @return string
+     */
+    function cmdInitialize() {
+        //console.log(process.env.USER);
+        
+        setExecPermissions();
+        setDebugMode();
+        
+        return process.env.HOME;
+    }
+        
     
     
     /**
@@ -100,10 +130,10 @@ maxerr: 50, node: true */
         
         DomainManager.registerCommand(
             "ccext",       // domain name
-            "getHomeDirectory",    // command name
-            cmdGetHomeDirectory,   // command handler function
+            "initialize",    // command name
+            cmdInitialize,   // command handler function
             false,          // this command is synchronous
-            "Gets user home directory",
+            "initialize domain and returns Home dir",
             [],// parameters
             [{name: "path",
                 type: "String",
