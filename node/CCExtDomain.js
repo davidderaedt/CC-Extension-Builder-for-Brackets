@@ -19,37 +19,15 @@ maxerr: 50, node: true */
         var cmd = "'" + __dirname + "/scripts/deployext.sh' '" + source + "' " + extid;
         
         exec(cmd, function (error, stdout, stderr) {
-            sys.puts(error);
+            if (error !== null) {
+                sys.puts(error);
+            }
         });
 
         return cmd;
     }
 
     
-
-    /**
-    * @private
-    * Give execution rights to scripts
-    * MAC ONLY
-    */
-    
-    function setExecPermissions() {
-
-        var cmd1 = "chmod 755 '" + __dirname + "/scripts/setdebugmode.sh'";
-        exec(cmd1, function (error, stdout, stderr) {
-            sys.puts(error);
-        });
-        
-        var cmd2 = "chmod 755 '" + __dirname + "/scripts/deployext.sh'";
-        exec(cmd2, function (error, stdout, stderr) {
-            sys.puts(error);
-        });
-        
-        
-        return true;
-    }
-              
-
     
     /**
     * @private
@@ -62,8 +40,38 @@ maxerr: 50, node: true */
         var cmd = "'" + __dirname + "/scripts/setdebugmode.sh'";
         
         exec(cmd, function (error, stdout, stderr) {
-            sys.puts(error);
+            if (error !== null) {
+                sys.puts(error);
+            }
         });
+        
+        return true;
+    }    
+
+    /**
+    * @private
+    * Give execution rights to scripts
+    * MAC ONLY
+    */
+    
+    function setExecPermissions() {
+
+        var cmd1 = "chmod 755 '" + __dirname + "/scripts/setdebugmode.sh'";
+        exec(cmd1, function (error, stdout, stderr) {
+            if (error !== null) {
+                sys.puts(error);
+            } else {
+                setDebugMode();
+            }
+        });
+        
+        var cmd2 = "chmod 755 '" + __dirname + "/scripts/deployext.sh'";
+        exec(cmd2, function (error, stdout, stderr) {
+            if (error !== null) {
+                sys.puts(error);
+            }
+        });
+        
         
         return true;
     }
@@ -78,7 +86,7 @@ maxerr: 50, node: true */
         //console.log(process.env.USER);
         
         setExecPermissions();
-        setDebugMode();
+        
         
         return process.env.HOME;
     }

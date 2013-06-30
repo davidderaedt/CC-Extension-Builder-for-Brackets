@@ -10,6 +10,7 @@ define(function (require, exports, module) {
     console.log("INITIALIZING CCExtBuilder EXTENSION");
         
     var CommandManager      = brackets.getModule("command/CommandManager");
+    var DocumentManager = brackets.getModule("document/DocumentManager");
     var Menus               = brackets.getModule("command/Menus");
     var ProjectManager      = brackets.getModule("project/ProjectManager");
     var FileUtils           = brackets.getModule("file/FileUtils");
@@ -27,6 +28,7 @@ define(function (require, exports, module) {
     var TEMPLATE_FOLDER_NAME = "/ccext-template/";
     var EXTENSION_DIR_MAC = "/Library/Application\ Support/Adobe/CEPServiceManager4/extensions/";
     var NODE_DOMAIN_LOCATION = "node/CCExtDomain";
+    var SUCCESS_MSG = "Extension successfully created! You may now launch it from its Creative Cloud application(s).";
     var HOSTS = [
             '<Host Name="PHXS" Version="[14.0,14.9]" /><Host Name="PHSP" Version="[14.0,14.9]" />',
             '<Host Name="ILST" Version="[17.0,17.9]" />',
@@ -99,7 +101,17 @@ define(function (require, exports, module) {
                 var manifestFile =  new NativeFileSystem.FileEntry(destDirPath + "/CSXS/manifest.xml");
                 processTemplateFile(manifestFile, data);
 
-                ProjectManager.openProject(destDirPath);
+                // Open project and document
+                ProjectManager.openProject(destDirPath).done(
+                    function () {
+                        DocumentManager.getDocumentForPath(destDirPath + "/index.html").done(
+                            function (doc) {
+                                DocumentManager.setCurrentDocument(doc);
+                                alert(SUCCESS_MSG);
+                            }
+                        );
+                    }
+                );
                                 
             }, 700);
         });
@@ -152,7 +164,7 @@ define(function (require, exports, module) {
             console.error("[brackets-ccext-node] failed to run ccext.initialize", err);
         });
         promise.done(function (path) {
-            //console.log("Home directory: " + path);
+            console.log("Home directory: " + path);
             userHomeDir = path;
         });
         return promise;
