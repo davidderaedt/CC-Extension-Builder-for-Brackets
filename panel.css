@@ -5,35 +5,34 @@ ccext-dialog{
     margin-left: -200px;
 }
 
-ccext-header{
+#ccext-header{
+    width:100%;
+    border-bottom:1px solid #d0d0d0;    
+}
+
+#ccext-dialog-title {
     width:100%;
     margin-left:10px;
 }
 
-ccext-dialog-title {
-    width:100%;
-    text-align:center;
-}
-
-ccext-body{
-    width:400px;
+.ccext-body{
+    width:500px;
 }
 
 .ccext-warning{
     width:100%;
-    text-align:center;
+    background-color:#d0d0d0;    
 }
-form {
-    margin:10px;
+.ccext-body form {
+    margin-top:50px;
     width:100%;
-    height:200px;
+    height:260px;
 }
 
-form input{
+.ccext-body form input{
    margin:6px;
 }
 
-
-form select{
+.ccext-body form select{
     margin:6px;    
 }
