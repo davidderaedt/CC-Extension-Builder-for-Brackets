@@ -1,5 +1,7 @@
 #Creative Cloud Extension Builder
 
+![screenshot](http://www.dehats.com/resources/ccextbrackets/header.jpg "screenshot")
+
 An extension for [Brackets](http://brackets.io/) and [Edge code](http://html.adobe.com/edge/code/) to create HTML extension panels for Creative Cloud applications (Photoshop CC, Illustrator CC, Premiere CC…).
 
 > *Warning*: This is a preview build. It is only compatible with Mac OSX (for now).
