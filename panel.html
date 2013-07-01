@@ -1,34 +1,36 @@
-
-<div class="extension-manager-dialog modal">
-    <div class="modal-header">
-        <h1 class="dialog-title">Creative Cloud Extension Builder - Experimental Build</h1>
+<div class="modal ccext-dialog">
+    <div class="ccext-header">
+        <h1 class="dialog-title ccext-dialog-title">Creative Cloud Extension Builder (Beta)</h1>
     </div>
-    <div class="modal-body no-padding zebra-striped">
-            
+    <div class="modal-body no-padding zebra-striped ccext-body">
+                        
         <form>
             
             <label>CC Product</label> <select id="ccext-host" name="ccext-product">
-                        <option value='0'>Photoshop</option>
-                        <option value='1'>Illustrator</option>
-                        <option value='2'>Premiere</option>
-                        <option value='3'>Prelude</option>
+                        <option value='0'>Photoshop CC</option>
+                        <option value='1'>Illustrator CC</option>
+                        <option value='2'>Premiere CC</option>
+                        <option value='3'>Prelude CC</option>
                     </select><br>
-                         
+                    
+            <label>Extension Name</label> <input id="ccext-extname"  type="text" name="extname" value="Hello World"><br>
+                    
             <label>Unique ID</label> <input id="ccext-id"  type="text" name="rdn" value="com.example.helloworld"><br>
-            
-            <label>Display Name</label> <input id="ccext-extname"  type="text" name="extname" value="Hello World"><br>
-    
+                
             <label>Default Width</label> <input id="ccext-extwidth"  type="text" value="300"><br>
             
             <label>Default Height</label> <input id="ccext-extheight"  type="text"  value="300"><br>
            
         </form>        
+        <hr>
+        <p class="ccext-warning">Warning: This build <b>only supports Mac OSX</b>. More info on <a href="https://github.com/davidderaedt/CC-Extension-Builder-for-Brackets">the project's page.</a></p>
+        <hr>
             
     </div>
     
     <div class="modal-footer">
-        <button id="ccextSubmit"  class="btn left dialog-button">Create Extension</button>
-        <button class="dialog-button btn primary" data-button-id="close">Cancel</button>
+        <button id="ccextSubmit"  class="btn left dialog-button primary">Create Extension</button>
+        <button class="dialog-button btn" data-button-id="close">Cancel</button>
     </div>
 </div>
     
