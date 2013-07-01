@@ -57,24 +57,22 @@ var themeManager = (function () {
      * Update the theme with the AppSkinInfo retrieved from the host product.
      */
     function updateThemeWithAppSkinInfo(appSkinInfo) {
-        //Update the background color of the panel
+        
         var panelBgColor = appSkinInfo.panelBackgroundColor.color;
         document.body.bgColor = toHex(panelBgColor);
     
-        //Update the default text style with pp values    
-        var styleId = "ppstyle";
+        var styleId = "hostStyle";
         
-        addRule(styleId, ".textStyle", "font-size:" + appSkinInfo.baseFontSize + "px" + "; color:" + "#" + reverseColor(panelBgColor));
-        addRule(styleId, ".controlBg", "background-color:" + "#" + toHex(panelBgColor, 20));
-        addRule(styleId, "button", "border-color: " + "#" + toHex(panelBgColor, -50));
+        addRule(styleId, ".hostFontSize", "font-size:" + appSkinInfo.baseFontSize + "px;");
+        addRule(styleId, ".hostFontFamily", "font-family:" + appSkinInfo.baseFontFamily);        
+        addRule(styleId, ".hostFontColor", "color:" + "#" + reverseColor(panelBgColor, 20));        
+        addRule(styleId, ".hostBgd", "background-color:" + "#" + toHex(panelBgColor, 20));
+        addRule(styleId, ".hostBorder", "border-color: " + "#" + toHex(panelBgColor, -80));
     }
     
     
     function onAppThemeColorChanged(event) {
-        // Should get a latest HostEnvironment object from application.
         var skinInfo = JSON.parse(window.__adobe_cep__.getHostEnvironment()).appSkinInfo;
-        // Gets the style information such as color info from the skinInfo, 
-        // and redraw all UI controls of your extension according to the style info.
         updateThemeWithAppSkinInfo(skinInfo);
     }
 

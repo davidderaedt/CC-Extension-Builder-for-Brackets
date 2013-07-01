@@ -2,12 +2,6 @@ body {
     text-align:center;
 }
 
-button
-{
-    border:1px solid;
-    border-radius:3px;
-    height:19px;
-}
 
 #content {
     margin-right:auto;
@@ -16,11 +10,15 @@ button
     width:100%;
 }
 
-#content ul {
-    padding:0px;
+.debugtools{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-align: center;
 }
 
-#content ul li {
+.debugtools li {
+    display:inline;
     margin:3px 0px 3px 0px;
 }
 
