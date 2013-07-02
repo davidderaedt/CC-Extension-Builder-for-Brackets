@@ -16,13 +16,14 @@ ccext-dialog{
 }
 
 .ccext-body{
-    width:520px;
+    width:500px;
 }
 
 .ccext-warning{
     width:100%;
     background-color:#d0d0d0;    
 }
+
 .ccext-body form {
     margin-top:50px;
     width:100%;
@@ -30,9 +31,16 @@ ccext-dialog{
 }
 
 .ccext-body form input{
-   margin:6px;
+   margin-left:6px;
+   float: left;
+}
+
+.ccext-body form label{
+    width: 30%;
+    text-align: right;
+    float: left;
 }
 
 .ccext-body form select{
-    margin:6px;    
+    margin-left:6px;    
 }
