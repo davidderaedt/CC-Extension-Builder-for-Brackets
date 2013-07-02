@@ -64,9 +64,10 @@ You can customize the default template from this extension source code, which yo
 
 ###How can I distribute my extensions?
 
-Extensions will only work on your session, you cannot simply copy/paste the extension folder to other users' systems.
+Extensions will only work on your session, you cannot simply copy/paste the extension folder to other users' systems (unless those users are extension developers themselves).
 
-To distribute them, you need to create ZXP packages for use with Extension Manager CC. Creating such packages is not supported at this time.
+More info on signing, packaging and extension distribution on the [Adobe Exchange website](https://www.adobeexchange.com/resources/7).
+
 
 ###Is this an official Adobe product?
 
