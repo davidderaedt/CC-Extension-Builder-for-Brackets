@@ -7,7 +7,9 @@ maxerr: 50, node: true */
     
     var sys = require('sys');
     var exec = require('child_process').exec;
-        
+    var os = require('os');
+    
+    var isMac;
         
     /**
      * @private
@@ -17,6 +19,9 @@ maxerr: 50, node: true */
     function cmdCopyTemplate(source, extid, cb) {
         
         var cmd = "'" + __dirname + "/scripts/deployext.sh' '" + source + "' " + extid;
+        if (!isMac) {
+            cmd = "'" + __dirname + "\scripts\deployext.bat' '" + source + "' " + extid;
+        }
         
         exec(cmd, function (error, stdout, stderr) {
             if (error !== null) {
@@ -38,6 +43,9 @@ maxerr: 50, node: true */
     function setDebugMode() {
 
         var cmd = "'" + __dirname + "/scripts/setdebugmode.sh'";
+        if (!isMac) {
+            cmd = "'" + __dirname + "\scripts\setdebugmode.bat'";
+        }
         
         exec(cmd, function (error, stdout, stderr) {
             if (error !== null) {
@@ -46,7 +54,7 @@ maxerr: 50, node: true */
         });
         
         return true;
-    }    
+    }
 
     /**
     * @private
@@ -99,6 +107,8 @@ maxerr: 50, node: true */
      */
     function init(DomainManager) {
         
+        isMac = os.platform() === "darwin";
+                
         if (!DomainManager.hasDomain("ccext")) {
             DomainManager.registerDomain("ccext", {major: 0, minor: 1});
         }
