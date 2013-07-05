@@ -32,8 +32,16 @@
 					<Geometry>
 						<Size>
 							<Height>${height}</Height>
-							<Width>${width}</Width>
+							<Width>${width}</Width>							
 						</Size>
+						<MaxSize>
+							<Height>${maxheight}</Height>
+							<Width>${maxwidth}</Width>
+						</MaxSize>
+						<MinSize>
+							<Height>${minheight}</Height>
+							<Width>${minwidth}</Width>
+						</MinSize>						
 					</Geometry>
 				</UI>
 			</DispatchInfo>

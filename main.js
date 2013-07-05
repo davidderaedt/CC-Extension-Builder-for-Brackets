@@ -141,6 +141,11 @@ define(function (require, exports, module) {
                 host: HOSTS[parseInt($exthost.val(), 10)],
                 width: $extwidth.val(),
                 height: $extheight.val(),
+                minwidth: "",
+                minheight: "",
+                maxwidth: "",
+                maxheight: "",
+                
                 extname : $extname.val()
             };
                         
