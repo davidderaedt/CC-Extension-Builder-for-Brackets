@@ -125,28 +125,19 @@ define(function (require, exports, module) {
         
         Dialogs.showModalDialogUsingTemplate(PanelTemplate);
                 
-        var $submitBt = $("#ccextSubmit");
-        var $cancelBt = $("#ccextCancel");
         
-        var $extid = $("#ccext-id");
-        var $extname = $("#ccext-extname");
-        var $exthost = $("#ccext-host");
-        var $extwidth = $("#ccext-extwidth");
-        var $extheight = $("#ccext-extheight");
-        
-        $submitBt.on("click", function (e) {
+        $("#ccextSubmit").on("click", function (e) {
             
             var data = {
-                extid : $extid.val(),
-                host: HOSTS[parseInt($exthost.val(), 10)],
-                width: $extwidth.val(),
-                height: $extheight.val(),
-                minwidth: "",
-                minheight: "",
-                maxwidth: "",
-                maxheight: "",
-                
-                extname : $extname.val()
+                extid : $("#ccext-id").val(),
+                host: HOSTS[parseInt($("#ccext-host").val(), 10)],
+                width: $("#ccext-extwidth").val(),
+                height: $("#ccext-extheight").val(),
+                minwidth: $("#ccext-extminwidth").val(),
+                minheight: $("#ccext-extminheight").val(),
+                maxwidth: $("#ccext-extmaxwidth").val(),
+                maxheight: $("#ccext-extmaxheight").val(),
+                extname : $("#ccext-extname").val()
             };
                         
             createExtension(data);
