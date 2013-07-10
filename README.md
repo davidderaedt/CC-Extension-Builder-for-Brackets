@@ -14,7 +14,7 @@ You don't need to download anything. Just do the following:
 
 1. Open [Brackets](http://brackets.io/) or [Edge code](http://html.adobe.com/edge/code/)
 2. Choose `File > Extension Manager` and click `Install from URL`
-3. Paste the URL of this page (`https://github.com/davidderaedt/CC-Extension-Builder-for-Brackets`) and click `Install`
+3. Paste the URL of this github repo (`https://github.com/davidderaedt/CC-Extension-Builder-for-Brackets`) and click `Install`
 
 
 No need to relaunch the app, your extension is ready to use.
