@@ -8,8 +8,31 @@ maxerr: 50, node: true */
     var sys = require('sys');
     var exec = require('child_process').exec;
     var os = require('os');
+    var fs = require('fs');
     
     var isMac;
+    
+    
+    function log(pMsg) {
+        var sep = (isMac) ? "/" : "\\";
+        fs.appendFile(__dirname + sep + "nodelog.txt", pMsg + "\r\n");
+    }
+
+    
+    /**
+     * @private
+     * Converts unix paths to windows paths
+     * @return string path
+     */
+    function toWinPath(pPath) {
+        if (pPath[pPath.length - 1] === "/") {
+            pPath = pPath.slice(0, -1); 
+        }
+        var reg = new RegExp("\/", "g");
+        var result = pPath.replace(reg, "\\");
+        //result = result.substr(0, result.length - 1);
+        return result;
+    }
         
     /**
      * @private
@@ -20,36 +43,41 @@ maxerr: 50, node: true */
         
         var cmd = "'" + __dirname + "/scripts/deployext.sh' '" + source + "' " + extid;
         if (!isMac) {
-            cmd = "'" + __dirname + "\scripts\deployext.bat' '" + source + "' " + extid;
+            cmd = '' + __dirname + '\\scripts\\deployext.bat ' + toWinPath(source) + ' ' + extid;
         }
+        
+        log("Exec:" + cmd);
         
         exec(cmd, function (error, stdout, stderr) {
             if (error !== null) {
-                sys.puts(error);
+                log(error);
+                cb(error, null);
+            } else {
+                stdout = stdout.replace(/[\r\n]/g, "");//remove linebreaks
+                log("stdout:" + stdout + "--");
+                cb(null, stdout);
             }
         });
-
-        return cmd;
     }
-
     
     
     /**
     * @private
     * Update the preferences to allow direct install of extensions
-    * MAC ONLY
     */
     
     function setDebugMode() {
 
         var cmd = "'" + __dirname + "/scripts/setdebugmode.sh'";
         if (!isMac) {
-            cmd = "'" + __dirname + "\scripts\setdebugmode.bat'";
+            cmd = '' + __dirname + '\\scripts\\setdebugmode.bat';
         }
+        
+        log(cmd);
         
         exec(cmd, function (error, stdout, stderr) {
             if (error !== null) {
-                sys.puts(error);
+                log(error);
             }
         });
         
@@ -59,24 +87,35 @@ maxerr: 50, node: true */
     /**
     * @private
     * Give execution rights to scripts
-    * MAC ONLY
     */
     
     function setExecPermissions() {
 
         var cmd1 = "chmod 755 '" + __dirname + "/scripts/setdebugmode.sh'";
+        if (!isMac) {
+            cmd1 = 'cacls ' + __dirname + '\\scripts\\setdebugmode.bat /e /g everyone:f';
+        }
+        
+        log("Exec:" + cmd1);
+        
         exec(cmd1, function (error, stdout, stderr) {
             if (error !== null) {
-                sys.puts(error);
+                log(error);
             } else {
                 setDebugMode();
             }
         });
         
         var cmd2 = "chmod 755 '" + __dirname + "/scripts/deployext.sh'";
+        if (!isMac) {
+            cmd2 = 'cacls ' + __dirname + '\\scripts\\deployext.bat /e /g everyone:f';
+        }
+        
+        log("Exec:" + cmd2);
+        
         exec(cmd2, function (error, stdout, stderr) {
             if (error !== null) {
-                sys.puts(error);
+                log(error);
             }
         });
         
@@ -87,47 +126,38 @@ maxerr: 50, node: true */
   
     /**
      * @private
-     * Returns the path of the home directory
-     * @return string
+     * Initializes domain by setting permissions and enabling debug mode 
+     * @return string the path of the home directory
      */
     function cmdInitialize() {
-        //console.log(process.env.USER);
         
         setExecPermissions();
-        
-        
-        return process.env.HOME;
+        var home = (process.env.HOME || process.env.USERPROFILE);
+        return home;
     }
         
     
     
     /**
-     * Initializes the test domain with several test commands.
+     * Initializes the test domain with several commands.
      * @param {DomainManager} DomainManager The DomainManager for the server
      */
     function init(DomainManager) {
         
         isMac = os.platform() === "darwin";
-                
+        
+        log("start " + new Date().toString() + " -- Platform: " + os.platform());
+
         if (!DomainManager.hasDomain("ccext")) {
             DomainManager.registerDomain("ccext", {major: 0, minor: 1});
         }
 
-        DomainManager.registerCommand(
-            "ccext",       // domain name
-            "setDebugMode",    // command name
-            setDebugMode,   // command handler function
-            false,          // this command is synchronous
-            "Update the preferences to allow direct install of extensions",
-            [],// parameters
-            []// return value
-        );
                         
         DomainManager.registerCommand(
             "ccext",       // domain name
             "copyTemplate",    // command name
             cmdCopyTemplate,   // command handler function
-            false,          // this command is synchronous
+            true,          // this command is synchronous
             "Copies the extension template to the appropriate location",
             [
                 {

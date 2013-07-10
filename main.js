@@ -10,7 +10,7 @@ define(function (require, exports, module) {
     console.log("INITIALIZING CCExtBuilder EXTENSION");
         
     var CommandManager      = brackets.getModule("command/CommandManager");
-    var DocumentManager = brackets.getModule("document/DocumentManager");
+    var DocumentManager     = brackets.getModule("document/DocumentManager");
     var Menus               = brackets.getModule("command/Menus");
     var ProjectManager      = brackets.getModule("project/ProjectManager");
     var FileUtils           = brackets.getModule("file/FileUtils");
@@ -26,7 +26,6 @@ define(function (require, exports, module) {
     var NEW_CCEXT_MENU_NAME   = "New Creative Cloud Extension";
             
     var TEMPLATE_FOLDER_NAME = "/ccext-template/";
-    var EXTENSION_DIR_MAC = "/Library/Application\ Support/Adobe/CEPServiceManager4/extensions/";
     var NODE_DOMAIN_LOCATION = "node/CCExtDomain";
     var SUCCESS_MSG = "Extension successfully created! You may now launch it from its Creative Cloud application(s).";
     var HOSTS = [
@@ -75,45 +74,37 @@ define(function (require, exports, module) {
                 console.log(err);
             });
     }
-
-
+    
 
     function createExtension(data) {
         
         var moduleFolder = FileUtils.getNativeModuleDirectoryPath(module);
         var templateFolder = new NativeFileSystem.DirectoryEntry(moduleFolder + TEMPLATE_FOLDER_NAME);
-
-        var destParentPath = userHomeDir + EXTENSION_DIR_MAC;
-        
-        var destDirPath = destParentPath + data.extid;
         
         var copyPromise = nodeConnection.domains.ccext.copyTemplate(templateFolder.fullPath, data.extid);
+        
         copyPromise.fail(function (err) {
             console.error("[brackets-ccext-node] failed to run ccext.copyTemplate", err);
         });
-        copyPromise.done(function (success) {
-            //console.log("Template copied: " + success);
+        
+        copyPromise.done(function (path) {
+                            
+            // Modify manifest file             
+            var manifestFile =  new NativeFileSystem.FileEntry(path + "/CSXS/manifest.xml");
+            processTemplateFile(manifestFile, data);
 
-            // TMP (awful) hack before we get a clean way to get async response
-            window.setTimeout(function () {
-                
-                // Modify manifest file             
-                var manifestFile =  new NativeFileSystem.FileEntry(destDirPath + "/CSXS/manifest.xml");
-                processTemplateFile(manifestFile, data);
-
-                // Open project and document
-                ProjectManager.openProject(destDirPath).done(
-                    function () {
-                        DocumentManager.getDocumentForPath(destDirPath + "/index.html").done(
-                            function (doc) {
-                                DocumentManager.setCurrentDocument(doc);
-                                alert(SUCCESS_MSG);
-                            }
-                        );
-                    }
-                );
+            // Open project and document
+            ProjectManager.openProject(path).done(
+                function () {
+                    DocumentManager.getDocumentForPath(path + "/index.html").done(
+                        function (doc) {
+                            DocumentManager.setCurrentDocument(doc);
+                            alert(SUCCESS_MSG);
+                        }
+                    );
+                }
+            );
                                 
-            }, 700);
         });
     }
 
