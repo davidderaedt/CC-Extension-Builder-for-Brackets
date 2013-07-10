@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Creative Cloud Extension Builder for Brackets : Augmenting Adobe's creative tools with technologies of the open web" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Creative Cloud Extension Builder for Brackets</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/davidderaedt/CC-Extension-Builder-for-Brackets">View on GitHub</a>
+
+          <h1 id="project_title">Creative Cloud Extension Builder for Brackets</h1>
+          <h2 id="project_tagline">Augmenting Adobe's creative tools with technologies of the open web</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/davidderaedt/CC-Extension-Builder-for-Brackets/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/davidderaedt/CC-Extension-Builder-for-Brackets/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <p><img src="http://www.dehats.com/resources/ccextbrackets/header.jpg" alt="screenshot" title="screenshot"></p>
+
+<p>You can now use HTML, CSS and javascript to create extension panels for Adobe Creative Cloud applications such as Photoshop, Illustrator and Premiere.</p>
+
+<p>This project helps you do so super easily using <a href="http://brackets.io/">Brackets</a>, the free and open source code editor for the web (and its little brother <a href="http://html.adobe.com/edge/code/">Edge code</a>).</p>
+
+<p>Internally, it leverages the <a href="https://github.com/davidderaedt/CCEXTCLI">Creative Cloud Extensions CLI</a> to deploy a ready-to-use, customizable extension template based on a modified version of the <a href="https://github.com/davidderaedt/ccext-boilerplate">Creative Cloud Extension boilerplate</a> (Standard).</p>
+
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>You don't need to download anything. Just do the following:</p>
+
+<ol>
+<li>Open <a href="http://brackets.io/">Brackets</a> or <a href="http://html.adobe.com/edge/code/">Edge code</a>
+</li>
+<li>Choose <code>File &gt; Extension Manager</code> and click <code>Install from URL</code>
+</li>
+<li>Paste the URL of this page (<code>https://github.com/davidderaedt/CC-Extension-Builder-for-Brackets</code>) and click <code>Install</code>
+</li>
+</ol><p>No need to relaunch the app, your extension is ready to use.</p>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>Choose <code>File &gt; New Creative Cloud Extension</code>.</p>
+
+<p>In the dialog, fill the form (which should be self explanatory), and choose <code>Create Extension</code>.</p>
+
+<p>You can then launch the target application, open your extension from the <code>Extensions</code> menu.</p>
+
+<p>Back in your code editor, edit some HTML, like the <code>&lt;h1&gt;Hello World&lt;/h1&gt;</code> tag, and save. Now, in your target application extension panel, click refresh to see it update.</p>
+
+<p>To communicate with the target application, edit the ExtendScript code in the <code>jsx/hostscript.jsx</code> file.</p>
+
+<h2>
+<a name="faq" class="anchor" href="#faq"><span class="octicon octicon-link"></span></a>FAQ</h2>
+
+<h3>
+<a name="is-this-an-official-adobe-product" class="anchor" href="#is-this-an-official-adobe-product"><span class="octicon octicon-link"></span></a>Is this an official Adobe product?</h3>
+
+<p>This Brackets extension is not an official Adobe product and is absolutely not supported by Adobe. The author just happens to be an Adobe employee.</p>
+
+<h3>
+<a name="i-dont-use-brackets-or-edge-code-are-there-other-alternatives" class="anchor" href="#i-dont-use-brackets-or-edge-code-are-there-other-alternatives"><span class="octicon octicon-link"></span></a>I don't use Brackets or Edge Code. Are there other alternatives?</h3>
+
+<p>You could definitely create a project and deploy it manually, but this might prove cumbersome.</p>
+
+<p>If you wish to use another code editor, a reasonable alternative would be to work from the command line, using the <a href="https://github.com/davidderaedt/CCEXTCLI">Creative Cloud Extensions CLI</a>.</p>
+
+<p>If you want the power of a full IDE, you can use the Eclipse based <a href="http://labs.adobe.com/technologies/extensionbuilder3/">Extension Builder 3</a>, which is an official Adobe product.</p>
+
+<h3>
+<a name="how-to-use-extendscript-to-communicate-with-host-applications" class="anchor" href="#how-to-use-extendscript-to-communicate-with-host-applications"><span class="octicon octicon-link"></span></a>How to use ExtendScript to communicate with host applications?</h3>
+
+<p>Creating scripts for CC applications is related yet separated from creating panels. While you can perfectly use Brackets / Edge Code to edit such files, support is fairly basic for now.</p>
+
+<p>To author ExtendScript files in a full featured Adobe official development environment, use <em>ExtendScript Toolkit CC</em>, which is included in the creative cloud. It includes help files and debugging tools.</p>
+
+<h3>
+<a name="where-are-my-files" class="anchor" href="#where-are-my-files"><span class="octicon octicon-link"></span></a>Where are my files?</h3>
+
+<p>Extensions are located at <code>~/Library/Application\ Support/Adobe/CEPServiceManager4/extensions/</code>, whatever the target application. </p>
+
+<h3>
+<a name="how-do-i-uninstall-those-extensions" class="anchor" href="#how-do-i-uninstall-those-extensions"><span class="octicon octicon-link"></span></a>How do I uninstall those extensions?</h3>
+
+<p>To uninstall them, simply delete the extension directory corresponding to the extension ID. Note that Extension Manager CC will not "see" your extensions.</p>
+
+<h3>
+<a name="can-i-use-live-preview" class="anchor" href="#can-i-use-live-preview"><span class="octicon octicon-link"></span></a>Can I use Live Preview?</h3>
+
+<p>Brackets' <em>live preview</em> will not work in the context of a CC application.</p>
+
+<p>The default panel includes a "Refresh panel" button so that you don't have to relaunch your extension or target application.</p>
+
+<p>It also includes a "Show dev tools" button to open the Chrome developer tools.</p>
+
+<h3>
+<a name="can-i-customize-the-default-extension-template" class="anchor" href="#can-i-customize-the-default-extension-template"><span class="octicon octicon-link"></span></a>Can I customize the default extension template?</h3>
+
+<p>You can customize the default template from this extension source code, which you can see from the <code>Help &gt; Show extension folder</code> menu. The template is located in the <code>ccext-template</code> directory.</p>
+
+<h3>
+<a name="how-can-i-distribute-my-extensions" class="anchor" href="#how-can-i-distribute-my-extensions"><span class="octicon octicon-link"></span></a>How can I distribute my extensions?</h3>
+
+<p>Extensions will only work on your session, you cannot simply copy/paste the extension folder to other users' systems (unless those users are extension developers themselves).</p>
+
+<p>Support from packaging from the tool or the command line will be coming soon.</p>
+
+<p>More info on signing, packaging and extension distribution on the <a href="https://www.adobeexchange.com/resources/7">Adobe Exchange website</a>.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Creative Cloud Extension Builder for Brackets maintained by <a href="https://github.com/davidderaedt">davidderaedt</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("589964");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+
+  </body>
+</html>
