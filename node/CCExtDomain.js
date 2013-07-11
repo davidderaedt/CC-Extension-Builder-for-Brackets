@@ -15,7 +15,8 @@ maxerr: 50, node: true */
     
     function log(pMsg) {
         var sep = (isMac) ? "/" : "\\";
-        fs.appendFile(__dirname + sep + "nodelog.txt", pMsg + "\r\n");
+        //fs.appendFile(__dirname + sep + "nodelog.txt", pMsg + "\r\n");
+        console.log(pMsg);
     }
 
     
@@ -26,7 +27,7 @@ maxerr: 50, node: true */
      */
     function toWinPath(pPath) {
         if (pPath[pPath.length - 1] === "/") {
-            pPath = pPath.slice(0, -1); 
+            pPath = pPath.slice(0, -1);
         }
         var reg = new RegExp("\/", "g");
         var result = pPath.replace(reg, "\\");
