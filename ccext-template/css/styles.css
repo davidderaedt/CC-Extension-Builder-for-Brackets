@@ -3,6 +3,12 @@ body {
 }
 
 
+#title {
+    font-size:24px;
+    
+}
+
+
 #content {
     margin-right:auto;
     margin-left:auto;
