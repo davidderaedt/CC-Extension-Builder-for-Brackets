@@ -6,7 +6,7 @@ You can now use HTML, CSS and javascript to create extension panels for Adobe Cr
 
 This project helps you do so super easily using [Brackets](http://brackets.io/), the free and open source code editor for the web (and its little brother [Edge code](http://html.adobe.com/edge/code/)).
 
-Internally, it leverages the [Creative Cloud Extensions CLI](https://github.com/davidderaedt/CCEXTCLI) to deploy a ready-to-use, customizable extension template based on a modified version of the [Creative Cloud Extension boilerplate](https://github.com/davidderaedt/ccext-boilerplate) (Standard).
+As part of the [CC Extensibility Helpers](http://davidderaedt.github.io/ccext-website/), it leverages the [Creative Cloud Extensions CLI](https://github.com/davidderaedt/CCEXTCLI) to deploy a ready-to-use, customizable extension template based on a modified version of the [Creative Cloud Extension boilerplate](https://github.com/davidderaedt/ccext-boilerplate) (Standard).
 
 ##Installation
 
