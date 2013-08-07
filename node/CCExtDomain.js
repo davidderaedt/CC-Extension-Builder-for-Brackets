@@ -14,9 +14,11 @@ maxerr: 50, node: true */
     
     
     function log(pMsg) {
+        /*
         var sep = (isMac) ? "/" : "\\";
-        //fs.appendFile(__dirname + sep + "nodelog.txt", pMsg + "\r\n");
-        console.log(pMsg);
+        fs.appendFile(__dirname + sep + "nodelog.txt", pMsg + "\r\n");
+        */
+        //console.log(pMsg);
     }
 
     
