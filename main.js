@@ -7,7 +7,7 @@
 define(function (require, exports, module) {
     'use strict';
 
-    console.log("INITIALIZING CCExtBuilder EXTENSION");
+    //console.log("INITIALIZING CCExtBuilder EXTENSION");
         
     var CommandManager      = brackets.getModule("command/CommandManager");
     var DocumentManager     = brackets.getModule("document/DocumentManager");
