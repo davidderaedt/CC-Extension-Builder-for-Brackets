@@ -9,31 +9,41 @@
 
 <body>
 
-    <div id="content">
+    <div id="content">        
+        
+        <h1>Hello World!</h1>
+
+<!--        
+        <h3>Radio buttons</h3>
+        
+        <input type="radio" name="group1" value="0" checked>
+        <label>Option 1</label><br>
+        
+        <input type="radio" name="group1" value="1" >
+        <label>Option 2</label><br>
+
+        <input type="radio" name="group1" value="2" >
+        <label>Option 3</label><br>
+        
+        <hr>
+        <input type="checkbox">
+        <label>Checkbox</label><br>
+        
+        <hr>
+-->                            
+        <button id="btn_test">Call ExtendScript</button>
         
         
-        <h1 id="title" class="hostFont">Hello World!</h1>
-          
-        
-        <ul class="debugtools">
+        <ul class="debugtools">            
             <li>
-                <button id="btn_test"
-                        class="hostElt hostFont">
-                        Call ExtendScript</button>
-            </li>
-            
-            <li>
-                <button id="btn_debug" 
-                        class="hostElt hostFont">
-                        Show dev tools</button>
+                <button id="btn_debug">Dt</button>
             </li>            
             <li>
-                <button id="btn_reload" 
-                        class="hostElt hostFont">
-                        Refresh Panel</button>
+                <button id="btn_reload">Rf</button>
             </li>
     
         </ul>
+        
     </div>
     
     <script src="js/libs/CSInterface-4.0.0.js"></script>
