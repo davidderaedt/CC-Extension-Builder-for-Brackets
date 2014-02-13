@@ -34,7 +34,7 @@ define(function (require, exports, module) {
             '<Host Name="PPRO" Version="[7.0,7.9]" />',
             '<Host Name="PRLD" Version="[2.0,2.9]" />',
             '<Host Name="IDSN" Version="[9.1,10.0]" />',
-            //'<Host Name="FLPR" Version="[13.1,14.0]" />'
+            '<Host Name="FLPR" Version="[13.1,13.9]" />'
         ];
         
                 
