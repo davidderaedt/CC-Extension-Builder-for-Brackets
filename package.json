@@ -3,7 +3,7 @@
     "title": "Creative Cloud Extension Builder",
     "description": "Create HTML extensions for Creative Cloud Applications",
     "homepage": "https://github.com/davidderaedt/CC-Extension-Builder-for-Brackets",
-    "version": "0.7.4",
+    "version": "0.7.5",
     "author": "David Deraedt <dderaedt@adobe.com> (http://www.dehats.com)",
     "license": "MIT",
     "engines": {

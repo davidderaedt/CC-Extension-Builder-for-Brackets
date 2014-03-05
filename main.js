@@ -95,6 +95,11 @@ define(function (require, exports, module) {
             var manifestFile =  new NativeFileSystem.FileEntry(path + "/CSXS/manifest.xml");
             processTemplateFile(manifestFile, data);
 
+            // Modify debug file             
+            var debugFile =  new NativeFileSystem.FileEntry(path + "/.debug");
+            processTemplateFile(debugFile, data);
+            
+            
             // Open project and document
             ProjectManager.openProject(path).done(
                 function () {
