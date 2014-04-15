@@ -58,7 +58,8 @@ maxerr: 50, node: true */
             } else {
                 stdout = stdout.replace(/[\r\n]/g, "");//remove linebreaks
                 log("stdout:" + stdout + "--");
-                cb(null, stdout);
+                var path = stdout.replace(/\\/g,"/");// replace windows \ by /
+                cb(null, path);
             }
         });
     }
