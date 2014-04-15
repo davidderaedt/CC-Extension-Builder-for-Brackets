@@ -15,6 +15,7 @@ define(function (require, exports, module) {
     var ProjectManager      = brackets.getModule("project/ProjectManager");
     var FileUtils           = brackets.getModule("file/FileUtils");
     var NativeFileSystem    = brackets.getModule("file/NativeFileSystem").NativeFileSystem;
+    var FileSystem          = brackets.getModule("filesystem/FileSystem");
     var Dialogs             = brackets.getModule("widgets/Dialogs");
     var PanelTemplate       = require("text!panel.html");
     var ExtensionUtils      = brackets.getModule("utils/ExtensionUtils");
@@ -81,7 +82,7 @@ define(function (require, exports, module) {
     function createExtension(data) {
         
         var moduleFolder = FileUtils.getNativeModuleDirectoryPath(module);
-        var templateFolder = new NativeFileSystem.DirectoryEntry(moduleFolder + TEMPLATE_FOLDER_NAME);
+        var templateFolder = new FileSystem.getDirectoryForPath(moduleFolder + TEMPLATE_FOLDER_NAME);
         
         var copyPromise = nodeConnection.domains.ccext.copyTemplate(templateFolder.fullPath, data.extid);
         
@@ -92,11 +93,11 @@ define(function (require, exports, module) {
         copyPromise.done(function (path) {
                             
             // Modify manifest file             
-            var manifestFile =  new NativeFileSystem.FileEntry(path + "/CSXS/manifest.xml");
+            var manifestFile =  new FileSystem.getFileForPath(path + "/CSXS/manifest.xml");
             processTemplateFile(manifestFile, data);
 
             // Modify debug file             
-            var debugFile =  new NativeFileSystem.FileEntry(path + "/.debug");
+            var debugFile =  new FileSystem.getFileForPath(path + "/.debug");
             processTemplateFile(debugFile, data);
             
             
