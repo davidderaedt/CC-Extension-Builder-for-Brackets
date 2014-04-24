@@ -30,12 +30,13 @@ define(function (require, exports, module) {
     var NODE_DOMAIN_LOCATION = "node/CCExtDomain";
     var SUCCESS_MSG = "Extension successfully created! You may now launch it from its Creative Cloud application(s).";
     var HOSTS = [
-            '<Host Name="PHXS" Version="[14.0,14.9]" /><Host Name="PHSP" Version="[14.0,14.9]" />',
-            '<Host Name="ILST" Version="[17.0,17.9]" />',
-            '<Host Name="PPRO" Version="[7.0,7.9]" />',
-            '<Host Name="PRLD" Version="[2.0,2.9]" />',
-            '<Host Name="IDSN" Version="[9.1,10.0]" />',
-            '<Host Name="FLPR" Version="[13.1,13.9]" />'
+            '<Host Name="PHXS" Version="[14.0,2100.0]" /><Host Name="PHSP" Version="[14.0,2100.0]" />',
+            '<Host Name="ILST" Version="[17.0,2100.0]" />',
+            '<Host Name="PPRO" Version="[7.0,2100.0]" />',
+            '<Host Name="PRLD" Version="[2.0,2100.0]" />',
+            '<Host Name="IDSN" Version="[9.1,2100.0]" />',
+            '<Host Name="FLPR" Version="[13.1,2100.0]" />',
+            '<Host Name="AEFT" Version="[13.0,2100.0]" />'
         ];
         
                 
