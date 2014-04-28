@@ -1,5 +1,8 @@
 #[Creative Cloud Extension Builder for Brackets](http://davidderaedt.github.io/CC-Extension-Builder-for-Brackets/)
 
+New SDK branch
+
+
 ![screenshot](http://www.dehats.com/resources/ccextbrackets/header.jpg "screenshot")
 
 A [Brackets](http://brackets.io/) extension to let you create HTML based extensions for Adobe Creative Cloud applications such as Photoshop, Illustrator and Premiere.
