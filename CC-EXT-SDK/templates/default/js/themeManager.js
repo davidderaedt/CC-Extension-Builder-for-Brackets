@@ -1,6 +1,14 @@
 /*jslint vars: true, plusplus: true, devel: true, nomen: true, regexp: true, indent: 4, maxerr: 50 */
 /*global window, document, CSInterface*/
 
+
+/*
+
+    Responsible for overwriting CSS at runtime according to CC app
+    settings as defined by the end user.
+
+*/
+
 var themeManager = (function () {
     'use strict';
      
@@ -64,33 +72,36 @@ var themeManager = (function () {
         var panelBgColor = appSkinInfo.panelBackgroundColor.color;
         var bgdColor = toHex(panelBgColor);
        
-        var eltBgdColor =  toHex(panelBgColor, 20);
+        var darkBgdColor =  toHex(panelBgColor, 20);
         
         var fontColor = "F0F0F0";
         if (panelBgColor.red > 122) {
             fontColor = "000000";
         }
-        var borderColor = toHex(panelBgColor, -100);
+        var lightBgdColor = toHex(panelBgColor, -100);
                 
         var styleId = "hostStyle";
-        addRule(styleId, "body", "background-color:" + "#" + bgdColor);
-        addRule(styleId, "body", "font-size:" + appSkinInfo.baseFontSize + "px;");
-        addRule(styleId, "body", "font-family:" + appSkinInfo.baseFontFamily);
-        addRule(styleId, "body", "color:" + "#" + fontColor);
-                        
-        addRule(styleId, "button", "background-color:" + "#" + eltBgdColor);
-        addRule(styleId, "button:hover", "background-color:" + "#" + bgdColor);
-        addRule(styleId, "button:active", "background-color:" + "#" + eltBgdColor);
-        addRule(styleId, "button", "border-color: " + "#" + borderColor);
         
+        addRule(styleId, ".hostElt", "background-color:" + "#" + bgdColor);
+        addRule(styleId, ".hostElt", "font-size:" + appSkinInfo.baseFontSize + "px;");
+        addRule(styleId, ".hostElt", "font-family:" + appSkinInfo.baseFontFamily);
+        addRule(styleId, ".hostElt", "color:" + "#" + fontColor);
 
+        addRule(styleId, ".hostBgd", "background-color:" + "#" + bgdColor);
+        addRule(styleId, ".hostBgdDark", "background-color: " + "#" + darkBgdColor);
+        addRule(styleId, ".hostBgdLight", "background-color: " + "#" + lightBgdColor);
+        addRule(styleId, ".hostFontSize", "font-size:" + appSkinInfo.baseFontSize + "px;");
+        addRule(styleId, ".hostFontFamily", "font-family:" + appSkinInfo.baseFontFamily);
+        addRule(styleId, ".hostFontColor", "color:" + "#" + fontColor);
+        
         addRule(styleId, ".hostFont", "font-size:" + appSkinInfo.baseFontSize + "px;");
         addRule(styleId, ".hostFont", "font-family:" + appSkinInfo.baseFontFamily);
         addRule(styleId, ".hostFont", "color:" + "#" + fontColor);
-                        
-        addRule(styleId, ".hostBgd", "background-color:" + "#" + bgdColor);
-        addRule(styleId, ".hostElt", "background-color:" + "#" + eltBgdColor);
-        addRule(styleId, ".hostElt", "border-color: " + "#" + borderColor);
+        
+        addRule(styleId, ".hostButton", "background-color:" + "#" + darkBgdColor);
+        addRule(styleId, ".hostButton:hover", "background-color:" + "#" + bgdColor);
+        addRule(styleId, ".hostButton:active", "background-color:" + "#" + darkBgdColor);
+        addRule(styleId, ".hostButton", "border-color: " + "#" + lightBgdColor);        
 
     }
     

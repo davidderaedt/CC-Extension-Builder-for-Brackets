@@ -1,0 +1,46 @@
+start Mon Apr 28 2014 14:55:55 GMT+0200 (CEST) -- Platform: darwin
+Exec:/Users/davidderaedt/Library/Application Support/Brackets/extensions/user/CCExtBuilder/CC-EXT-SDK/createext.sh default com.example.helloworld
+Error: Command failed: /bin/sh: /Users/davidderaedt/Library/Application: is a directory
+
+start Mon Apr 28 2014 14:57:02 GMT+0200 (CEST) -- Platform: darwin
+Exec:/Users/davidderaedt/Library/Application\ Support/Brackets/extensions/user/CCExtBuilder/CC-EXT-SDK/createext.sh default com.example.helloworld
+start Mon Apr 28 2014 14:57:11 GMT+0200 (CEST) -- Platform: darwin
+start Mon Apr 28 2014 14:58:10 GMT+0200 (CEST) -- Platform: darwin
+start Mon Apr 28 2014 15:03:51 GMT+0200 (CEST) -- Platform: darwin
+Exec:'/Users/davidderaedt/Library/Application Support/Brackets/extensions/user/CCExtBuilder/CC-EXT-SDK/createext.sh' default com.example.helloworld
+stdout:/Users/davidderaedt/Library/Application Support/Adobe/CEPServiceManager4/extensions/com.example.helloworld
+
+start Mon Apr 28 2014 15:04:47 GMT+0200 (CEST) -- Platform: darwin
+Exec:'/Users/davidderaedt/Library/Application Support/Brackets/extensions/user/CCExtBuilder/CC-EXT-SDK/createext.sh' default com.example.helloworld
+stdout:/Users/davidderaedt/Library/Application Support/Adobe/CEPServiceManager4/extensions/com.example.helloworld
+
+start Mon Apr 28 2014 15:08:06 GMT+0200 (CEST) -- Platform: darwin
+start Mon Apr 28 2014 15:38:11 GMT+0200 (CEST) -- Platform: darwin
+Exec:'/Users/davidderaedt/Library/Application Support/Brackets/extensions/user/CCExtBuilder/CC-EXT-SDK/createext.shsh' default com.example.helloworld
+Error: Command failed: /bin/sh: /Users/davidderaedt/Library/Application Support/Brackets/extensions/user/CCExtBuilder/CC-EXT-SDK/createext.shsh: No such file or directory
+
+start Mon Apr 28 2014 15:39:06 GMT+0200 (CEST) -- Platform: darwin
+Exec:'/Users/davidderaedt/Library/Application Support/Brackets/extensions/user/CCExtBuilder/CC-EXT-SDK/createext.sh' default com.example.helloworld
+stdout:/Users/davidderaedt/Library/Application Support/Adobe/CEPServiceManager4/extensions/com.example.helloworld
+
+Exec:'/Users/davidderaedt/Library/Application Support/Brackets/extensions/user/CCExtBuilder/CC-EXT-SDK/createext.sh' default com.example.helloworld
+stdout:/Users/davidderaedt/Library/Application Support/Adobe/CEPServiceManager4/extensions/com.example.helloworld
+
+start Mon Apr 28 2014 15:41:28 GMT+0200 (CEST) -- Platform: darwin
+Exec:'/Users/davidderaedt/Library/Application Support/Brackets/extensions/user/CCExtBuilder/CC-EXT-SDK/createext.sh' default com.example.helloworld
+stdout:/Users/davidderaedt/Library/Application Support/Adobe/CEPServiceManager4/extensions/com.example.helloworld
+
+start Mon Apr 28 2014 15:48:36 GMT+0200 (CEST) -- Platform: darwin
+Exec:'/Users/davidderaedt/Library/Application Support/Brackets/extensions/user/CCExtBuilder/CC-EXT-SDK/setdebugmode.sh'
+stdout:
+Exec:'/Users/davidderaedt/Library/Application Support/Brackets/extensions/user/CCExtBuilder/CC-EXT-SDK/setdebugmode.sh'
+stdout:
+start Mon Apr 28 2014 15:52:52 GMT+0200 (CEST) -- Platform: darwin
+Exec:'/Users/davidderaedt/Library/Application Support/Brackets/extensions/user/CCExtBuilder/CC-EXT-SDK/createext.sh' default com.example.helloworld
+stdout:/Users/davidderaedt/Library/Application Support/Adobe/CEPServiceManager4/extensions/com.example.helloworld
+
+start Mon Apr 28 2014 15:54:29 GMT+0200 (CEST) -- Platform: darwin
+start Mon Apr 28 2014 15:58:47 GMT+0200 (CEST) -- Platform: darwin
+Exec:'/Users/davidderaedt/Library/Application Support/Brackets/extensions/user/CCExtBuilder/CC-EXT-SDK/createext.sh' default com.example.helloworld
+stdout:/Users/davidderaedt/Library/Application Support/Adobe/CEPServiceManager4/extensions/com.example.helloworld
+

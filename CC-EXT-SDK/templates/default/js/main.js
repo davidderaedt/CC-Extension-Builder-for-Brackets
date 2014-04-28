@@ -5,19 +5,12 @@
     'use strict';
 
     var csInterface = new CSInterface();
-        
-    // Reloads extension panel
-    function reloadPanel() {
-        location.reload();
-    }
     
     
     function init() {
                 
         themeManager.init();
-        
-        $("#btn_reload").click(reloadPanel);
-        
+                
         $("#btn_test").click(function () {
             csInterface.evalScript('sayHello()');
         });

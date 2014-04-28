@@ -1,11 +1,11 @@
 #[Creative Cloud Extension Builder for Brackets](http://davidderaedt.github.io/CC-Extension-Builder-for-Brackets/)
 
-New SDK branch
+This is the development branch of the project, based on the new, all-in-one SDK.
 
 
 ![screenshot](http://www.dehats.com/resources/ccextbrackets/header.jpg "screenshot")
 
-A [Brackets](http://brackets.io/) extension to let you create HTML based extensions for Adobe Creative Cloud applications such as Photoshop, Illustrator and Premiere.
+A [Brackets](http://brackets.io/) extension to let you create HTML based extensions for Adobe Creative Cloud applications such as Photoshop, Illustrator and InDesign.
 
 For more informations, go to: [Creative Cloud Extension Builder for Brackets](http://davidderaedt.github.io/CC-Extension-Builder-for-Brackets/)
 
@@ -26,11 +26,5 @@ No need to relaunch the app, your extension is ready to use.
 
 Contributions are welcome, but be sure what you want to contribute to.
 
-Internally, this project is basically a view on top of a simple node domain which calls the [Creative Cloud Extensions CLI](https://github.com/davidderaedt/CCEXTCLI) to deploy an extension template based on a modified version of the [Creative Cloud Extension boilerplate](https://github.com/davidderaedt/ccext-boilerplate) (Standard).
-
-So, if you want to contribute to the GUI or general UX, this is the right place.
-
-If you want to improve the way CC extensions are deployed on the user's system, you should contribute to [Creative Cloud Extensions CLI](https://github.com/davidderaedt/CCEXTCLI).
-
-If you want to build better default templates for generated CC extensions, go to [Creative Cloud Extension boilerplate](https://github.com/davidderaedt/ccext-boilerplate).
+Please keep in mind this project is just a client on top of the [Creative Cloud Extensions SDK](https://github.com/davidderaedt/CC-EXT-SDK), so make sure any issue / pull request be submitted against the right project.
 

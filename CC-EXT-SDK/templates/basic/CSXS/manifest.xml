@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionManifest Version="4.0" ExtensionBundleId="com.example.ext" ExtensionBundleVersion="1.0.0"
+		ExtensionBundleName="Extension-Name" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ExtensionList>
+		<Extension Id="com.example.ext" Version="1.0" />
+	</ExtensionList>
+	<ExecutionEnvironment>
+		<HostList>
+            <!-- Uncomment Host tags according to the apps you want your panel to support -->
+            <!-- Photoshop -->
+            <Host Name="PHXS" Version="[14.0,2100.0]" />
+            <Host Name="PHSP" Version="[14.0,2100.0]" />
+            <!-- Illustrator -->
+            <!-- <Host Name="ILST" Version="[17.0,2100.0]" /> -->
+            <!-- InDesign -->
+            <!-- <Host Name="IDSN" Version="[9.1,2100.0]" /> -->          
+            <!-- Premiere -->
+            <!-- <Host Name="PPRO" Version="[7.0,2100.0]" /> -->
+            <!-- AfterEffects -->
+            <!-- <Host Name="AEFT" Version="[13.0,2100.0]" /> -->
+            <!-- PRELUDE -->
+            <!-- <Host Name="PRLD" Version="[2.0,2100.0]" />   -->
+            <!-- FLASH Pro -->
+            <!-- <Host Name="FLPR" Version="[13.1,2100.0]" /> -->
+		</HostList>
+		<LocaleList>
+			<Locale Code="All" />
+		</LocaleList>
+		<RequiredRuntimeList>
+			<RequiredRuntime Name="CSXS" Version="4.0" />
+		</RequiredRuntimeList>
+	</ExecutionEnvironment>
+	<DispatchInfoList>
+		<Extension Id="com.example.ext">
+			<DispatchInfo >
+				<Resources>
+				<MainPath>./index.html</MainPath>
+				<ScriptPath>./jsx/hostscript.jsx</ScriptPath>
+				</Resources>
+				<Lifecycle>
+					<AutoVisible>true</AutoVisible>
+				</Lifecycle>
+				<UI>
+					<Type>Panel</Type>
+					<Menu>Extension-Name</Menu>
+					<Geometry>
+						<Size>
+							<Height>300</Height>
+							<Width>300</Width>
+						</Size>
+					</Geometry>
+				</UI>
+			</DispatchInfo>
+		</Extension>
+	</DispatchInfoList>
+</ExtensionManifest>

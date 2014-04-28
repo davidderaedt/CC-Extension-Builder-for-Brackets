@@ -3,5 +3,5 @@
 
 
 function sayHello(){
-    alert("hello from ExendScript");
+    alert("hello from ExtendScript");
 }
