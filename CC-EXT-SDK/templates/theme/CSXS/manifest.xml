@@ -8,12 +8,10 @@
 		<HostList>
             <!-- Uncomment Host tags according to the apps you want your panel to support -->
             <!-- Photoshop -->
-
             <Host Name="PHXS" Version="[15.0,15.9]" />
             <Host Name="PHSP" Version="[15.0,15.9]" />
-
             <!-- Illustrator -->
-            <!-- <Host Name="ILST" Version="[18.0,18.9]" />-->
+            <!-- <Host Name="ILST" Version="[18.0,18.9]" /> -->
             <!-- InDesign -->
             <!-- <Host Name="IDSN" Version="[10.0,10.9]" /> -->          
             <!-- Premiere -->
