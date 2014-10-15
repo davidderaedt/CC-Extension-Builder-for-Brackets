@@ -14,10 +14,10 @@ maxerr: 50, node: true */
     
     
     function log(pMsg) {
-        /*
+        
         var sep = (isMac) ? "/" : "\\";
         fs.appendFile(__dirname + sep + "nodelog.txt", pMsg + "\r\n");
-        */
+        
         //console.log(pMsg);
     }
 
@@ -36,12 +36,67 @@ maxerr: 50, node: true */
         //result = result.substr(0, result.length - 1);
         return result;
     }
+    
+    
+    /**
+     * @private
+     * Handler function for the ccext.execmd command.
+     * @return true
+     */
+    function cmdExec(cmd, cb) {
+                        
+        log("Exec:" + cmd);
+        
+        exec(cmd, function (error, stdout, stderr) {
+            if (error !== null) {
+                log(error);
+                cb(error, null);
+            } else {
+                log("stdout:" + stdout);
+                cb(null, stdout);
+            }
+        });
+    }        
+    
+    
+    /**
+     * @private
+     * Handler function for the ccext.createExt command.
+     * @return true
+     */
+    /*
+    function cmdCreateExt(sdkPath, extid, cb) {
+                
+        var scriptPath = sdkPath + "createext";
+        
+        var cmd = "'" + scriptPath + ".sh' default " + extid;
+        if (!isMac) {
+            scriptPath = toWinPath(scriptPath);
+            cmd = '' + scriptPath + '.bat default ' + extid;
+        }
+        
+        log("Exec:" + cmd);
+        
+        exec(cmd, function (error, stdout, stderr) {
+            if (error !== null) {
+                log(error);
+                cb(error, null);
+            } else {
+                stdout = stdout.replace(/[\r\n]/g, "");//remove linebreaks
+                log("stdout:" + stdout);
+                var path = stdout.replace(/\\/g,"/");// replace windows \ by /
+                cb(null, path);
+            }
+        });
+    }    
+    */
         
     /**
      * @private
      * Handler function for the ccext.copyTemplate command.
      * @return true
      */
+    /*
     function cmdCopyTemplate(source, extid, cb) {
         
         var cmd = "'" + __dirname + "/scripts/deployext.sh' '" + source + "' " + extid;
@@ -63,13 +118,13 @@ maxerr: 50, node: true */
             }
         });
     }
-    
+    */
     
     /**
     * @private
     * Update the preferences to allow direct install of extensions
     */
-    
+    /*
     function setDebugMode() {
 
         var cmd = "'" + __dirname + "/scripts/setdebugmode.sh'";
@@ -87,7 +142,7 @@ maxerr: 50, node: true */
         
         return true;
     }
-
+    */
     /**
     * @private
     * Give execution rights to scripts
@@ -135,7 +190,7 @@ maxerr: 50, node: true */
      */
     function cmdInitialize() {
         
-        setExecPermissions();
+        //setExecPermissions();
         var home = (process.env.HOME || process.env.USERPROFILE);
         return home;
     }
@@ -159,6 +214,47 @@ maxerr: 50, node: true */
                         
         DomainManager.registerCommand(
             "ccext",       // domain name
+            "execmd",    // command name
+            cmdExec,   // command handler function
+            true,          // this command is synchronous
+            "Executes arbitrary command",
+            [
+                {
+                    name: "cmd",
+                    type: "String",
+                    description: "command to be executed"
+                }
+            ],// parameters
+            [{name: "success",
+                type: "String",
+                description: "success of file operation"}]
+        );   
+        /*
+        DomainManager.registerCommand(
+            "ccext",       // domain name
+            "createExt",    // command name
+            cmdCreateExt,   // command handler function
+            true,          // this command is synchronous
+            "Creates an extension to the appropriate location",
+            [
+                {
+                    name: "source",
+                    type: "String",
+                    description: "source folder"
+                },
+                {
+                    name: "extid",
+                    type: "String",
+                    description: "extension id"
+                }
+            ],// parameters
+            [{name: "success",
+                type: "String",
+                description: "success of file operation"}]
+        );        
+        
+        DomainManager.registerCommand(
+            "ccext",       // domain name
             "copyTemplate",    // command name
             cmdCopyTemplate,   // command handler function
             true,          // this command is synchronous
@@ -179,7 +275,7 @@ maxerr: 50, node: true */
                 type: "String",
                 description: "success of file operation"}]
         );
-        
+        */
         DomainManager.registerCommand(
             "ccext",       // domain name
             "initialize",    // command name
