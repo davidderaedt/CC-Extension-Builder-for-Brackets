@@ -1,7 +1,5 @@
 #[Creative Cloud Extension Builder for Brackets](http://davidderaedt.github.io/CC-Extension-Builder-for-Brackets/)
 
-This is the development branch of the project, based on the new, all-in-one SDK.
-
 
 ![screenshot](http://www.dehats.com/resources/ccextbrackets/header.jpg "screenshot")
 
