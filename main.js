@@ -14,7 +14,6 @@ define(function (require, exports, module) {
     var Menus               = brackets.getModule("command/Menus");
     var ProjectManager      = brackets.getModule("project/ProjectManager");
     var FileUtils           = brackets.getModule("file/FileUtils");
-    var NativeFileSystem    = brackets.getModule("file/NativeFileSystem").NativeFileSystem;
     var FileSystem          = brackets.getModule("filesystem/FileSystem");
     var Dialogs             = brackets.getModule("widgets/Dialogs");
     var PanelTemplate       = require("text!panel.html");
