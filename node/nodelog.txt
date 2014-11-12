@@ -48,3 +48,4 @@ start Thu May 08 2014 12:12:58 GMT+0200 (CEST) -- Platform: darwin
 Exec:'/Users/davidderaedt/Library/Application Support/Brackets/extensions/user/CCExtBuilder/CC-EXT-SDK/createext.sh' default com.example.helloworld
 stdout:/Users/davidderaedt/Library/Application Support/Adobe/CEP/extensions/com.example.helloworld
 
+start Wed Nov 12 2014 12:09:31 GMT+0100 (CET) -- Platform: darwin
