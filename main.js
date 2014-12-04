@@ -55,7 +55,7 @@ define(function (require, exports, module) {
         
         var cmd = "";
         if(isWin) {
-            cmd = "'"+sdkFolder.fullPath + "setdebugmode.bat'";
+            cmd = '"'+sdkFolder.fullPath + "setdebugmode.bat"';
         } else {
             cmd = "'"+sdkFolder.fullPath + "setdebugmode.sh'" ;
         } 
