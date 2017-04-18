@@ -1,4 +1,4 @@
-#Creative Cloud Extension SDK
+# Creative Cloud Extension SDK
 
 (THIS IS THE CEP5 BRANCH)
 
@@ -7,7 +7,7 @@ As of now, it consists of some command line tool / scripts and some templates.
 
 
  
-###createext 
+### createext 
 
 Creates an extension panel from a given template and deploys it.
 
@@ -28,7 +28,7 @@ Example: `createext.sh default com.example.ext`  ... will create the extension *
 You can of course add your own templates to the `templates` folder.
 
 
-###deployext
+### deployext
 
 Copies an existing extension folder to the appropriate location for it to be executed.
 
@@ -52,12 +52,12 @@ Example: To deploy an extension located at `~/my-awesome-ext/` with the ID `com.
 For a sample extension to start with, check out my [Creative Cloud Extension boilerplate](https://github.com/davidderaedt/ccext-boilerplate).
 
 
-###setdebugmode and disabledebugmode
+### setdebugmode and disabledebugmode
 
 For extensions to run, you should first run `setdebugmode.sh` (mac) or `setdebugmode.bat` (win) once to properly configure your system for extension development. Otherwise, extensions will refuse to launch.
 `disabledebugmode.sh` reverts to the default behavior. Windows users should update the CEP registry key manually.
 
-###execextendscript
+### execextendscript
 
 This shell script can be used to execute an ExtendScript file in Photoshop, Illustrator, or InDesign on a mac via command line. Unfortunately, there is no windows equivalent for now.
 

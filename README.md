@@ -1,4 +1,4 @@
-#[Creative Cloud Extension Builder for Brackets](http://davidderaedt.github.io/CC-Extension-Builder-for-Brackets/)
+# [Creative Cloud Extension Builder for Brackets](http://davidderaedt.github.io/CC-Extension-Builder-for-Brackets/)
 
 
 ![screenshot](http://www.dehats.com/resources/ccextbrackets/header.jpg "screenshot")
@@ -8,7 +8,7 @@ A [Brackets](http://brackets.io/) extension to let you create HTML based extensi
 For more informations, go to: [Creative Cloud Extension Builder for Brackets](http://davidderaedt.github.io/CC-Extension-Builder-for-Brackets/)
 
 
-##Installation
+## Installation
 
 You don't need to download anything. Just do the following:
 
@@ -17,7 +17,7 @@ You don't need to download anything. Just do the following:
 
 No need to relaunch the app, your extension is ready to use.
 
-##Contributions
+## Contributions
 
 Contributions are welcome, but be sure what you want to contribute to.
 
